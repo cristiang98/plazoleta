@@ -1,0 +1,33 @@
+server:
+  port: 8083
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${name_db}
+    username: ${user_db}
+    password: ${password_db}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: couriers
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+appDescription: "Pragma courier service"
+appVersion: "1.0.0"
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    web:
+      enabled: true
